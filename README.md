@@ -11,3 +11,5 @@ El equipo está conformado por Luisa Acevedo, Daniel Castañeda, Rodrigo Hurtado
 Daniel Castañeda es docente de matemáticas, con experiencia previa en lenguajes como Python, Java , Lua y Haskell.
 
 Rodrigo Hurtado es comunicador social y politologo sin experiencia en lenguajes de programación previas a lo que ha visto en Misión TIC 
+
+David Resterpo es Ingeniero de Sistemas y Pensionado, sin experiencia en lenguajes de programacion, solo la capacitacion de MINTIC.
