@@ -12,4 +12,7 @@ Daniel Castañeda es docente de matemáticas, con experiencia previa en lenguaje
 
 Rodrigo Hurtado es comunicador social y politologo sin experiencia en lenguajes de programación previas a lo que ha visto en Misión TIC 
 
+
 David Resterpo es Ingeniero de Sistemas y Pensionado, sin experiencia en lenguajes de programacion, solo la capacitacion de MINTIC.
+
+Luisa Acevedo es Ingeniera en Mecatrónica, con conocimientos en python, html, css y Node.JS.
