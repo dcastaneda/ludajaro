@@ -38,6 +38,19 @@ header .container nav a
     text-decoration: none;
     margin: 0 15px;
 }
+footer .seccion{
+    background-color: white;
+    color: #2f1b1a;
+    padding-bottom: 0;
+}
+footer .barra-footer{
+    background-color: beige;
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .boton
 {
     text-align: center;
@@ -114,6 +127,9 @@ header .container nav a
 .columna{
     padding-right: 15px;
     padding-left:  15px;    
+}
+.columna-25{
+    width: 25%;
 }
 .columna-33{
     width: 33.33%;
