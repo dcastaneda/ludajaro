@@ -1,0 +1,63 @@
+.sidenav{
+
+    position:fixed;
+    height: 100%;
+    width: 30%;
+    background-color:#202124;
+    color: white;
+    padding-top: 17%;
+    text-align: center;
+}
+.sidemenu{
+
+    position:fixed;
+    height: 100%;
+    width: 30%;
+    background-color:#202124;
+    color: white;
+    text-align: left;
+}
+.sidemenu a{
+    font-size : 1.3em;
+    color:#b5c2e5;
+}
+.content{
+    margin-left: 43%;
+    
+}
+form{
+    padding: 30%
+}
+.sidenav h1{
+    font-size: 2.5em;
+}
+.sidenav p{
+    font-size: 1.5em;
+}
+.sidenav ul{
+    list-style: none;
+    text-align: left;
+    font-size: 1.6em;
+    
+}
+.searchbar{
+    margin-right: 25%;
+   
+}
+.sidenav li{
+    padding: 10px;
+    background-color: black;
+    margin-left: 0px;
+    
+}
+table {
+
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
