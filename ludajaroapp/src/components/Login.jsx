@@ -1,10 +1,14 @@
 import React from "react";
 import './styles.css'
+import Greeting from './Greeting'
 
 const Login = ()=>{
 
 
-    return (<div class="content">
+    return (
+    <>
+    <Greeting></Greeting>
+    <div class="content">
     <form action="./sales.html">
     
     <input type="text" id="username" /><br/>
@@ -21,7 +25,7 @@ const Login = ()=>{
 
     </form>
 
-</div>);
+</div></>);
 
 }
 export default Login;
