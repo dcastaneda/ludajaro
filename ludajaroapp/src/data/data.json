@@ -1,0 +1,44 @@
+[
+    {
+    "id":1,
+    "nombre": "Daniel", 
+    "edad" : 32, 
+    "rol": "Vendedor", 
+    "estado":"Activo" 
+    },
+    
+    {
+     "id": 2, 
+     "nombre": "Luisa", 
+     "edad" : 23, 
+     "rol": "Gerente", 
+     "estado":"Activo" 
+    }
+    ,
+
+    {
+        "id": 3, 
+        "nombre": "David", 
+        "edad" : 35, 
+        "rol": "Desarrollador", 
+        "estado":"Activo" 
+    }
+    ,
+
+    {
+        "id": 4, 
+        "nombre": "Rodrigo", 
+        "edad" : 33, 
+        "rol": "Consultor", 
+        "estado":"Activo" 
+       }
+       ,
+
+    {
+        "id": 1293041, 
+        "nombre": "Javier", 
+        "edad" : 25, 
+        "rol": "Vendedor", 
+        "estado":"Retirado" 
+       }
+]

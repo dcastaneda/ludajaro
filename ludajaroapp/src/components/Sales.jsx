@@ -1,15 +1,20 @@
 import React from "react";
+import Sidenav from "./Sidenav";
+import './styles.css'
 
 const Sales =()=>{
-return(<div class="content">    
-  <div class="ui fluid icon input searchbar">
+return(<><Sidenav />
+  <div className="content"> 
+  <div className="ui fluid icon input searchbar">
   <input type="text" placeholder="Buscar venta" />
-  <i class="search icon"></i>
+  <i className="search icon"></i>
   </div><br/>
-  <button class="ui button">Buscar por vendedor</button>
-  <button class="ui button">Buscar por usuario</button>
-  <button class="ui button">Buscar por número de venta</button>
-  <br/><br/><br/><button class="ui button primary">Todas las ventas</button>
+  <button className="ui button">Buscar por vendedor</button>
+  <button className="ui button">Buscar por nombre de cliente</button>
+  <button className="ui button">Buscar por documento de cliente</button>
+  <button className="ui button">Buscar por número de venta</button>
+  <br /><br /><button className="ui button secondary">Registrar venta</button>
+  <br/><br/><br/><button className="ui button primary">Todas las ventas</button>
 <h2>Listado de Ventas</h2>
 
 <table>
@@ -21,7 +26,7 @@ return(<div class="content">
   </tr>
   
 </table>
-</div>);}
+</div></>);}
 
 export default Sales;
      

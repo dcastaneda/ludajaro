@@ -8,20 +8,20 @@ const Login = ()=>{
     return (
     <>
     <Greeting></Greeting>
-    <div class="content">
-    <form action="./sales.html">
+    <div className="content">
+    <form action="/ventas">
     
     <input type="text" id="username" /><br/>
-    <div class="ui pointing above label">
+    <div className="ui pointing above label">
      Usuario
     </div><br /><br />
     
     <input type="password" id="password" /><br/>
-   <div class="ui pointing above label">
+   <div className="ui pointing above label">
     Contraseña
     </div>
     <br/> <br/>
-    <button type="submit" class="ui secondary button">Ingresar</button>
+    <button type="submit" className="ui secondary button">Ingresar</button>
 
     </form>
 
