@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import './styles.css'
 import data from '../data/data.json'
+import AddUserForm from "./AddUserForm";
 // users component
 const Users =()=>{
 const [count,setCount] = useState(false);
@@ -8,15 +9,7 @@ const [searchId,setSearchId] = useState(false);
 const [addUser,setAddUser] = useState(false);
 const arr = [];
 var resultId;
-const UserAddForm = ()=>{return <form><label for="nombreUsuario" >Nombre</label><input type="text" id="nombreUsuario" />
-<label for="documento">Documento</label>
 
-<input type="text" id="documento" className ="agregar" />
-<select ><option value="">--Seleccione el rol--</option>
-    <option value="cliente">Cliente</option>
-    <option value="vendedor">Vendedor</option>
-    <option value="gerente">Gerente</option></select>
-</form> }
 for(let i=0;i<data.length;i++){
   arr.push(<tr>
       <td>{data[i].nombre}</td>
@@ -59,9 +52,9 @@ return(<div className="content">
   <button className="ui button">Actualizar estado</button>
   <button className="ui button">Actualizar rol</button>
   <br /><br /><button className="ui button secondary" onClick={()=>setAddUser(true)}>Agregar usuario</button>
- 
+  {addUser?<AddUserForm/>:<></>}
   <br/><br/><br/><button className="ui button primary" onClick={()=>setCount(true)}>Todos los usuarios</button>
-  {addUser?<UserAddForm/>:<></>}
+ 
 <h2>Listado de Usuarios</h2>
 
 <table>

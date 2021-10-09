@@ -63,10 +63,11 @@ td, th {
 
 }
 .agregar{
-    color: blue;
-    padding: 0px;
-    margin: 0;
-    background-color: red;
-    float:left;}
-
+    margin-top: 5px;
+    padding: 0;    
+    
+}
+.ui.button{
+    margin: 5px;
+}
 
