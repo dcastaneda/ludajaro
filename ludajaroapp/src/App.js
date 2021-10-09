@@ -14,7 +14,7 @@ function App() {
   <>
    <Sidenav />
    <Switch> 
-    <Route path="/login" component={Login}/>
+    <Route path="/" component={Login}/>
    
     <Route path="/ventas" component={Sales} />
     <Route path="/productos" component={Products} />
