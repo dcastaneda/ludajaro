@@ -1,33 +1,41 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import './styles.css'
 import data from '../data/data.json'
 import AddUserForm from "./AddUserForm";
+import Axios from "axios";
 // users component
 const Users =()=>{
 const [count,setCount] = useState(false);
 const [searchId,setSearchId] = useState(false);
 const [addUser,setAddUser] = useState(false);
-const arr = [];
-var resultId;
+var arr = [];
+const [db,setDB]=useState([]);
 
-for(let i=0;i<data.length;i++){
+var resultId;
+useEffect(()=>{
+
+Axios.get("http://localhost:3001/listausuarios").then((response)=>{setDB(response.data)})})
+
+
+
+for(let i=0;i<db.length;i++){
   arr.push(<tr>
-      <td>{data[i].nombre}</td>
-      <td>{data[i].id}</td>
-      <td>{data[i].rol}</td>
-      <td>{data[i].estado}</td>
+      <td>{db[i].nombre}</td>
+      <td>{db[i].id}</td>
+      <td>{db[i].rol}</td>
+      <td>{db[i].estado}</td>
     </tr>)
   }
 function searchById(id){
     resultId =[]
-    for (let i=0;i<data.length;i++){
-      if(data[i].id==id){
+    for (let i=0;i<db.length;i++){
+      if(db[i].id==id){
       
         resultId.push(<tr>
-          <td>{data[i].nombre}</td>
-          <td>{data[i].id}</td>
-          <td>{data[i].rol}</td>
-          <td>{data[i].estado}</td>
+          <td>{db[i].nombre}</td>
+          <td>{db[i].id}</td>
+          <td>{db[i].rol}</td>
+          <td>{db[i].estado}</td>
         </tr>)
       }
     }
