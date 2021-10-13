@@ -5,7 +5,7 @@ import AddUserForm from "./AddUserForm";
 import Axios from "axios";
 // users component
 const Users =()=>{
-const [count,setCount] = useState(false);
+const [listUsers,setListUsers] = useState(false);
 const [searchId,setSearchId] = useState(false);
 const [addUser,setAddUser] = useState(false);
 var arr = [];
@@ -55,13 +55,13 @@ return(<div className="content">
   <i className="search icon"></i>
   </div><br/>
   <button className="ui button" onClick={()=>setSearchId(true)}>Buscar por documento</button>
-  <button className="ui button" onClick={()=>{setSearchId(false);setCount(false);}}>Limpiar Busqueda</button>
+  <button className="ui button" onClick={()=>{setSearchId(false);setListUsers(false);}}>Limpiar Busqueda</button>
   <button className="ui button">Buscar por nombre</button>
   <button className="ui button">Actualizar estado</button>
   <button className="ui button">Actualizar rol</button>
   <br /><br /><button className="ui button secondary" onClick={()=>setAddUser(true)}>Agregar usuario</button>
   {addUser?<AddUserForm/>:<></>}
-  <br/><br/><br/><button className="ui button primary" onClick={()=>setCount(true)}>Todos los usuarios</button>
+  <br/><br/><br/><button className="ui button primary" onClick={()=>setListUsers(true)}>Todos los usuarios</button>
  
 <h2>Listado de Usuarios</h2>
 
@@ -72,7 +72,7 @@ return(<div className="content">
     <th>Rol</th>
     <th>Estado</th>
   </tr>
-    {count? arr:<></>}
+    {listUsers? arr:<></>}
     {searchId? searchById(parseInt(document.getElementById("searchTxt").value)):<></>}
     </table>
    

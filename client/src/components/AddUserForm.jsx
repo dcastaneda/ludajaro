@@ -8,7 +8,9 @@ const[estado,setEstado] = useState("activo");
 const[rol,setRol] = useState(""); 
 
 const saveToDB = ()=>{
-    Axios.post("http://localhost:3001/nuevousuario",{nombre: nombre,id: id,rol: rol,estado: estado})
+    Axios.post("http://localhost:3001/nuevousuario",{nombre: nombre,id: id,rol: rol,estado: estado});
+    alert("usuario guardado con éxito");
+    
 }
 
 
@@ -29,7 +31,7 @@ return <form className ="agregar"><label htmlFor="nombreUsuario" >Nombre</label>
     <option value="cliente">Cliente</option>
     <option value="vendedor">Vendedor</option>
     <option value="gerente">Gerente</option></select>
-    <button className="ui button" type="button" onClick={saveToDB}>Registrar</button>
+    <button className="ui button" type="submit" onClick={saveToDB}>Registrar</button>
 </form> }
 
 export default AddUserForm;
