@@ -5,7 +5,7 @@ const UsuarioSchema = new mongoose.Schema(
         type: String,
         required: true
     },
-     id: {
+     cedula: {
          type: Number,
          required: true
      },

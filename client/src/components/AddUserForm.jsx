@@ -8,7 +8,7 @@ const[estado,setEstado] = useState("activo");
 const[rol,setRol] = useState(""); 
 
 const saveToDB = ()=>{
-    Axios.post("http://localhost:3001/nuevousuario",{nombre: nombre,id: id,rol: rol,estado: estado});
+    Axios.post("http://localhost:3001/nuevousuario",{nombre: nombre,cedula: id,rol: rol,estado: estado});
     alert("usuario guardado con éxito");
     
 }

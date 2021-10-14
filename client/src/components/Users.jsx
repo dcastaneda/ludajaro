@@ -16,14 +16,19 @@ useEffect(()=>{
 
 Axios.get("http://localhost:3001/listausuarios").then((response)=>{setDB(response.data)})})
 
-
+const deleteUser = (i)=>{Axios.delete(`http://localhost:3001/delete/${i}`);};
 
 for(let i=0;i<db.length;i++){
   arr.push(<tr>
       <td>{db[i].nombre}</td>
-      <td>{db[i].id}</td>
+      <td>{db[i].cedula}</td>
       <td>{db[i].rol}</td>
       <td>{db[i].estado}</td>
+      <td><button class="ui icon button">
+  <i class="edit icon"></i>
+</button><button class="ui icon button" onClick={()=>{deleteUser(db[i]._id)}}>
+  <i class="trash icon"></i>
+</button></td>
     </tr>)
   }
 function searchById(id){

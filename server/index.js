@@ -5,21 +5,22 @@ const ModeloProducto =require("./models/Productos");
 const ModeloVenta =require("./models/Ventas");
 const app = express();
 const cors = require('cors');
+const pw = require("./cred");
 
 app.use(express.json())
 app.use(cors());
 
 mongoose.connect(
-"mongodb+srv://daniel:atotburu@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority",{useNewUrlParser: true});
+`mongodb+srv://daniel:${pw.pw}@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority`,{useNewUrlParser: true});
 
 // agregar un nuevo usuario a la base de datos.
 app.post('/nuevousuario',async (req,res)=>{
     const nombre = req.body.nombre;
-    const id = req.body.id;
+    const cedula = req.body.cedula;
     const rol = req.body.rol;
 
     const usuario = new ModeloUsuario(
-        {nombre:nombre,id : id, rol: rol,estado: "activo"})
+        {nombre:nombre,cedula : cedula, rol: rol,estado: "activo"})
 
     try{await usuario.save()}catch(err){
         console.log(err);
@@ -38,7 +39,13 @@ app.get('/listausuarios', async (req,res)=>{
 
 
 });
+app.delete('/delete/:id',async (req,res)=>{
+    const id = req.params.id;
+    ModeloUsuario.findByIdAndRemove(id).exec();
+   
+  
 
+})
 app.get('/nuevoproducto',async (req,res)=>{
     const nombre = "Café";
     const id = 12129;
