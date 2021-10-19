@@ -6,7 +6,7 @@ const [nombre,setNombre] = useState("");
 const [id,setId] = useState(0);
 const[estado,setEstado] = useState("activo");
 const[rol,setRol] = useState(""); 
-
+const name="Daniel";
 const saveToDB = ()=>{
     Axios.post("http://localhost:3001/nuevousuario",{nombre: nombre,cedula: id,rol: rol,estado: estado});
     alert("usuario guardado con éxito");
@@ -16,7 +16,7 @@ const saveToDB = ()=>{
 
 
 return <form className ="agregar"><label htmlFor="nombreUsuario" >Nombre</label>
-<input type="text" id="nombreUsuario" onChange={(event)=>{
+<input type="text" id="nombreUsuario"  onChange={(event)=>{
     setNombre(event.target.value);
 }}/>
 <label htmlFor="documento">Documento</label>

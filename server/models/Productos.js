@@ -5,7 +5,7 @@ const ProductoSchema = new mongoose.Schema(
         type: String,
         required: true
     },
-     id: {
+     codigo: {
          type: Number,
          required: true
      },
