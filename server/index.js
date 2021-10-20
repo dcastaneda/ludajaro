@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cors());
 
 mongoose.connect(
-`mongodb+srv://daniel:${pw.pw}@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority`,{useNewUrlParser: true});
+`mongodb+srv://daniel:atotburu@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority`,{useNewUrlParser: true});
 
 // agregar un nuevo usuario a la base de datos.
 app.post('/nuevousuario',async (req,res)=>{
