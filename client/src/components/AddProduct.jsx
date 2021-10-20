@@ -16,19 +16,21 @@ const saveToDB = ()=>{
 
 
 
-return <form className ="agregar"><label htmlFor="nombre" >Nombre</label>
+return <form className ="agregar"><label htmlFor="nombre" >Descripcion </label>
 <input type="text" id="nombre" onChange={(event)=>{
     setNombre(event.target.value);
 }}/>
-<label htmlFor="codigo">Codigo</label>
+<label htmlFor="codigo">  Codigo </label>
 
 <input type="text" id="codigo" onChange={(event)=>{
     setId(event.target.value);
 }}/>
-<label>Stock</label>
+<br /> <br />
+<label>Stock </label>
 <input type="number" id="stock" onChange={(event)=>{setStock(event.target.value);}}></input>
-<label>Precio</label>
+<label>  Precio </label>
 <input type="number" id="precio" onChange={(event)=>{setPrecio(event.target.value);}}></input>
+<br /> <br/>
     <button className="ui button" type="submit" onClick={saveToDB}>Registrar</button>
 </form> }
 

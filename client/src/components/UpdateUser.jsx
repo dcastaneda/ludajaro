@@ -47,7 +47,7 @@ const UpdateUser = (props)=>{
     <select onChange={(event)=>{setEstado(event.target.value);}}><option value="">--Seleccione el rol--</option>
         <option value="activo">Activo</option>
         <option value="inactivo">Inactivo</option></select>
-                <button className="ui button" onClick ={updateDB} type="submit">Registrar</button>
+                <button className="ui button" onClick ={updateDB} type="submit">Actualizar</button>
     </form> }
 
 export default UpdateUser;
