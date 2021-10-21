@@ -34,7 +34,7 @@ const UpdateUser = (props)=>{
     }
 
     return <form className ="agregar">
-        <h1>{props.nombre}</h1><label htmlFor="nombreUsuario" >Nombre</label>
+       <label htmlFor="nombreUsuario" >Nombre</label>
     <input type="text" id="nombreUsuario" value={props.user.nombre}/>
     <label htmlFor="documento" >Documento</label>
     
@@ -47,7 +47,7 @@ const UpdateUser = (props)=>{
     <select onChange={(event)=>{setEstado(event.target.value);}}><option value="">--Seleccione el rol--</option>
         <option value="activo">Activo</option>
         <option value="inactivo">Inactivo</option></select>
-                <button className="ui button" onClick ={updateDB} type="submit">Registrar</button>
+                <button className="ui button" onClick ={updateDB} type="submit">Actualizar</button>
     </form> }
 
 export default UpdateUser;

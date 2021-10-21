@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cors());
 
 mongoose.connect(
-`mongodb+srv://daniel:atotburu@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority`,{useNewUrlParser: true});
+`mongodb+srv://daniel:${pw.pw}@cluster0.70cs0.mongodb.net/datos?retryWrites=true&w=majority`,{useNewUrlParser: true});
 
 // agregar un nuevo usuario a la base de datos.
 app.post('/nuevousuario',async (req,res)=>{
@@ -37,6 +37,17 @@ app.get('/listausuarios', async (req,res)=>{
         res.send(result);
     })
 });
+//lista de ventas
+
+app.get('/listaventas', async (req,res)=>{
+    ModeloVenta.find({},(err,result)=>{
+        if(err){
+            res.send(err);
+        }
+        res.send(result);
+    })
+});
+
 app.get('/listaproductos', async (req,res)=>{
     ModeloProducto.find({},(err,result)=>{
         if(err){

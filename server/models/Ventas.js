@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const VentaSchema = new mongoose.Schema(
-    {id:{
+    {codigo:{
         type: Number,
         required: true
     },
@@ -13,8 +13,8 @@ const VentaSchema = new mongoose.Schema(
          type: Number,
          required: true
      }  ,
-     productos:{
-         type: Array,
+     nombrecliente:{
+         type: String,
          required: true
      }  ,
      valor: {

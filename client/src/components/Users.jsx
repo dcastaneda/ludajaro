@@ -8,12 +8,14 @@ import UpdateUser from "./UpdateUser";
 const Users =()=>{
 const [listUsers,setListUsers] = useState(false);
 const [searchId,setSearchId] = useState(false);
+const [searchNombre,setSearchNombre] = useState(false);
 const [addUser,setAddUser] = useState(false);
-const [updateUser, setUpdateUser] = useState({});
+const [updateUser, setUpdateUser] = useState([false,{}]);
 var arr = [];
 const [db,setDB]=useState([]);
 
 var resultId;
+var resultName;
 useEffect(()=>{
 
 Axios.get("http://localhost:3001/listausuarios").then((response)=>{setDB(response.data)})})
@@ -21,7 +23,7 @@ Axios.get("http://localhost:3001/listausuarios").then((response)=>{setDB(respons
 const deleteUser = (i)=>{Axios.delete(`http://localhost:3001/deleteuser/${i}`);alert(i);};
 
 
-
+// creando la lista de todos los usuarios
 
 for(let i=0;i<db.length;i++){
   arr.push(<tr>
@@ -29,7 +31,7 @@ for(let i=0;i<db.length;i++){
       <td>{db[i].cedula}</td>
       <td>{db[i].rol}</td>
       <td>{db[i].estado}</td>
-      <td><button class="ui icon button" onClick={()=>{setUpdateUser(db[i]);}}>
+      <td><button class="ui icon button" onClick={()=>{setUpdateUser([!updateUser[0],db[i]]);}}>
   <i class="edit icon"></i>
 </button></td>
       <td><button class="ui icon button" onClick={()=>{deleteUser(db[i]._id)}}>
@@ -37,21 +39,57 @@ for(let i=0;i<db.length;i++){
 </button></td>
     </tr>)
   }
+
+// Buscando usuario por cédula 
 function searchById(id){
     resultId =[]
     for (let i=0;i<db.length;i++){
-      if(db[i].id==id){
+      if(db[i].cedula==id){
       
         resultId.push(<tr>
           <td>{db[i].nombre}</td>
-          <td>{db[i].id}</td>
+          <td>{db[i].cedula}</td>
           <td>{db[i].rol}</td>
           <td>{db[i].estado}</td>
+          <td><button class="ui icon button" onClick={()=>{setUpdateUser([!updateUser[0],db[i]]);}}>
+
+  <i class="edit icon"></i>
+</button></td>
+      <td><button class="ui icon button" onClick={()=>{deleteUser(db[i]._id)}}>
+  <i class="trash icon"></i>
+</button></td>
         </tr>)
       }
     }
 
     return resultId;
+  }
+//buscando usuario por nombre
+
+  function searchByName(nom){
+   
+    resultName =[]
+    for (let i=0;i<db.length;i++){
+      
+      if(db[i].nombre.toLowerCase().indexOf(nom)!=-1){
+       
+        resultName.push(<tr>
+          <td>{db[i].nombre}</td>
+          <td>{db[i].cedula}</td>
+          <td>{db[i].rol}</td>
+          <td>{db[i].estado}</td>
+          <td><button class="ui icon button" onClick={()=>{setUpdateUser(db[i]);}}>
+  <i class="edit icon"></i>
+</button></td>
+      <td><button class="ui icon button" onClick={()=>{deleteUser(db[i]._id)}}>
+  <i class="trash icon"></i>
+</button></td>
+        </tr>);
+       
+      }
+    }
+
+    return resultName;
   }
 
   
@@ -60,20 +98,20 @@ function searchById(id){
       
     
     
-return(<div className="content">    
+return(
+<div className="content">    
   <div className="ui fluid icon input searchbar">
-  <input type="text" placeholder="Buscar venta" id="searchTxt" />
+  <input type="text" placeholder="Buscar" id="searchTxt" />
   <i className="search icon"></i>
   </div><br/>
-  <button className="ui button" onClick={()=>setSearchId(true)}>Buscar por documento</button>
-  <button className="ui button" onClick={()=>{setSearchId(false);setListUsers(false);}}>Limpiar Busqueda</button>
-  <button className="ui button">Buscar por nombre</button>
-  <button className="ui button">Actualizar estado</button>
-  <button className="ui button">Actualizar rol</button>
-  <br /><br /><button className="ui button secondary" onClick={()=>setAddUser(true)}>Agregar usuario</button>
+  <button className="ui button" onClick={()=>{setSearchId(true);setListUsers(false);setSearchNombre(false);}}>Buscar por documento</button>
+  <button className="ui button" onClick={()=>{setSearchId(false);setListUsers(false);setSearchNombre(false);}}>Limpiar Busqueda</button>
+  <button className="ui button" onClick={()=>{setSearchNombre(true);setSearchId(false);setListUsers(false);}}>Buscar por nombre</button>
+
+  <br /><br /><button className="ui button secondary" onClick={()=>setAddUser(!addUser)}>Agregar usuario</button>
   {addUser?<AddUserForm/>:<></>}
-  {Object.keys(updateUser).length!=0? <UpdateUser user={updateUser}/>:<></>}
-  <br/><br/><br/><button className="ui button primary" onClick={()=>setListUsers(true)}>Todos los usuarios</button>
+  {updateUser[0]?<UpdateUser user={updateUser[1]}/>:<></>}
+  <br/><br/><br/><button className="ui button primary" onClick={()=>{setListUsers(true);setSearchId(false);setSearchNombre(false);}}>Todos los usuarios</button>
  
 <h2>Listado de Usuarios</h2>
 
@@ -89,6 +127,7 @@ return(<div className="content">
    
     {listUsers? arr:<></>}
     {searchId? searchById(parseInt(document.getElementById("searchTxt").value)):<></>}
+    {searchNombre? searchByName(document.getElementById("searchTxt").value.toLowerCase()):<></>}
     </table>
    
   
