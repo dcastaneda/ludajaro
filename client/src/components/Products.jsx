@@ -37,12 +37,7 @@ function searchById(id){
       resultId =[]
       for (let i=0;i<db.length;i++){
         if(db[i].codigo==id){
-<<<<<<< HEAD
          resultId.push(<tr>
-=======
-         alert(db[i].nombre);
-          resultId.push(<tr>
->>>>>>> 74d136c1db00b5e18ad3f867fbc504bada432240
             <td>{db[i].nombre}</td>
             <td>{db[i].codigo}</td>
             <td>{db[i].precio}</td>
@@ -72,11 +67,10 @@ function searchById(id){
             <td>{db[i].codigo}</td>
             <td>{db[i].precio}</td>
             <td>{db[i].stock}</td>
-<<<<<<< HEAD
+
             <td><button class="ui icon button" onClick={()=>{setUpdateProduct([!updateProduct[0],db[i]]);}}>
-=======
-            <td><button class="ui icon button" onClick={()=>{setUpdateProduct([true,db[i]]);}}>
->>>>>>> 74d136c1db00b5e18ad3f867fbc504bada432240
+          
+
     <i class="edit icon"></i>
   </button></td>
         <td><button class="ui icon button" onClick={()=>{deleteProduct(db[i]._id)}}>
@@ -95,19 +89,15 @@ return(<div className="content">
   <input type="text" placeholder="Buscar producto" id="searchTxt" />
   <i className="search icon"></i>
   </div><br/>
-  <button className="ui button" onClick={()=>{setSearchId(true)}}>Buscar producto por código</button>
-<<<<<<< HEAD
-  <button className="ui button" onClick={()=>{setListProducts(false);setSearchDesc(false);setSearchDesc(true)}}>Buscar producto por descripción</button>
+  <button className="ui button" onClick={()=>{setSearchId(true);setListProducts(false);setSearchDesc(false);}}>Buscar producto por código</button>
+  <button className="ui button" onClick={()=>{setListProducts(false);setSearchId(false);setSearchDesc(true);}}>Buscar producto por descripción</button>
   <button className="ui button" onClick={()=>{setSearchId(false);setListProducts(false);setSearchDesc(false);}}>Limpiar Busqueda</button>
-=======
-  <button className="ui button" onClick={()=>{setSearchDesc(true)}}>Buscar producto por descripción</button>
->>>>>>> 74d136c1db00b5e18ad3f867fbc504bada432240
-  <button className="ui button" onClick={()=>{setNuevo(!nuevo)}}>Agregar producto</button>
+    <button className="ui button" onClick={()=>{setNuevo(!nuevo)}}>Agregar producto</button>
   
  
   {nuevo?<AddProduct />:<></>}
   {updateProduct[0]?<UpdateProduct product={updateProduct[1]}/>:<></>}
-  <br/><br/><br/><button className="ui button primary" onClick={()=>{setListProducts(true);}}>Mostrar todos los productos</button>
+  <br/><br/><br/><button className="ui button primary" onClick={()=>{setListProducts(true);setSearchId(false);setSearchDesc(false);}}>Mostrar todos los productos</button>
 
 <h2>Listado de productos</h2>
 

@@ -78,7 +78,7 @@ function searchById(id){
           <td>{db[i].cedula}</td>
           <td>{db[i].rol}</td>
           <td>{db[i].estado}</td>
-          <td><button class="ui icon button" onClick={()=>{setUpdateUser(db[i]);}}>
+          <td><button class="ui icon button" onClick={()=>{setUpdateUser([!updateUser[0],db[i]]);}}>
   <i class="edit icon"></i>
 </button></td>
       <td><button class="ui icon button" onClick={()=>{deleteUser(db[i]._id)}}>
@@ -104,11 +104,8 @@ return(
   <input type="text" placeholder="Buscar" id="searchTxt" />
   <i className="search icon"></i>
   </div><br/>
-<<<<<<< HEAD
   <button className="ui button" onClick={()=>{setSearchId(true);setListUsers(false);setSearchNombre(false);}}>Buscar por documento</button>
-=======
   <button className="ui button" onClick={()=>{setSearchId(true);setListUsers(false);}}>Buscar por documento</button>
->>>>>>> 74d136c1db00b5e18ad3f867fbc504bada432240
   <button className="ui button" onClick={()=>{setSearchId(false);setListUsers(false);setSearchNombre(false);}}>Limpiar Busqueda</button>
   <button className="ui button" onClick={()=>{setSearchNombre(true);setSearchId(false);setListUsers(false);}}>Buscar por nombre</button>
 

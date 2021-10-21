@@ -7,7 +7,7 @@ const Sales =()=>{
 const [listSales,setListSales] = useState(false);
 const [searchCode,setSearchCode] = useState(false);
 const [addSale,setAddSale] = useState(false);
-const [updateSale, setUpdateSale] = useState({});
+const [updateSale, setUpdateSale] = useState([false,{}]);
 
 // --------------------- this array will contain the table with all the sales.
 
@@ -27,7 +27,8 @@ for(let i=0;i<db.length;i++){
       <td>{db[i].cliente}</td>
       <td>{db[i].vendedor}</td>
       <td>{db[i].valor}</td>
-      <td><button class="ui icon button" onClick={()=>{setUpdateSale(db[i]);}}>
+      <td>{db[i].nombrecliente}</td>
+      <td><button class="ui icon button" onClick={()=>{setUpdateSale([true,db[i]]);}}>
   <i class="edit icon"></i>
 </button></td>
       <td><button class="ui icon button" onClick={()=>{deleteSale(db[i]._id)}}>
