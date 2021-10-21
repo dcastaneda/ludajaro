@@ -83,15 +83,20 @@ app.delete('/deleteproduct/:id',async (req,res)=>{
     ModeloProducto.findByIdAndRemove(id).exec();
 })
 
+app.delete('/deletesale/:id',async (req,res)=>{
+    const id = req.params.id;
+    ModeloVenta.findByIdAndRemove(id).exec();
+})
 
-app.get('/nuevaventa',async (req,res)=>{
-    const cliente = 12345;
-    const id = 1;
-    const vendedor = 10000;
-    const productos = [{codproduto: 12343,nombreproducto:"café",cantidad: 5},{producto: 12134, cantidad: 5}]; 
-    const valor = 50000;
+
+app.post('/nuevaventa',async (req,res)=>{
+    const cliente = req.body.cliente;
+    const codigo = req.body.codigo;
+    const vendedor = req.body.vendedor;
+    const nombrecliente = req.body.nombrecliente; 
+    const valor = req.body.valor;
     const venta = new ModeloVenta(
-        {cliente:cliente,id : id, valor: valor,vendedor: vendedor,productos: productos});
+        {cliente:cliente,codigo : codigo, valor: valor,vendedor: vendedor,nombrecliente: nombrecliente});
 
     try{await venta.save() }catch(err){
         console.log(err);

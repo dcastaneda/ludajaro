@@ -5,7 +5,7 @@ const AddProduct = ()=>{
 const [nombre,setNombre] = useState("");
 const [id,setId] = useState(0);
 const[precio,setPrecio] = useState("activo");
-const[stock,setStock] = useState(""); 
+const[stock,setStock] = useState(0); 
 
 const saveToDB = ()=>{
     Axios.post('http://localhost:3001/nuevoproducto',{nombre: nombre,codigo: id,precio: precio,stock: stock});

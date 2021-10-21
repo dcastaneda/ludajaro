@@ -10,7 +10,7 @@ const UpdateProduct = (props)=>{
     const updateDB = ()=>{
         
        var update = props.product;
-       alert(props.product._id);
+       
        const id = props.product._id;
        delete update._id;
         if (desc!=""){
