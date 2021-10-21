@@ -104,7 +104,11 @@ return(
   <input type="text" placeholder="Buscar" id="searchTxt" />
   <i className="search icon"></i>
   </div><br/>
+<<<<<<< HEAD
   <button className="ui button" onClick={()=>{setSearchId(true);setListUsers(false);setSearchNombre(false);}}>Buscar por documento</button>
+=======
+  <button className="ui button" onClick={()=>{setSearchId(true);setListUsers(false);}}>Buscar por documento</button>
+>>>>>>> 74d136c1db00b5e18ad3f867fbc504bada432240
   <button className="ui button" onClick={()=>{setSearchId(false);setListUsers(false);setSearchNombre(false);}}>Limpiar Busqueda</button>
   <button className="ui button" onClick={()=>{setSearchNombre(true);setSearchId(false);setListUsers(false);}}>Buscar por nombre</button>
 
